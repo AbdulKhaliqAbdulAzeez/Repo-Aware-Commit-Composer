@@ -1,0 +1,58 @@
+# AI Commit Message Tool Configuration
+
+style:
+  # Use Conventional Commit format
+  conventional: true
+  
+  # Maximum line width for commit body
+  width: 72
+  
+  # Prepend emoji to commit type
+  emoji: false
+  
+  # Verb tense (present|past)
+  tense: present
+  
+  # Bullet point style
+  bullet: "- "
+
+scope:
+  # Automatically infer scope from file paths
+  infer: true
+  
+  # Map directories to scopes
+  map:
+    "packages/web": "web"
+    "packages/api": "api"
+    "services/auth": "auth"
+    "infra/": "infra"
+    "docs/": "docs"
+
+issues:
+  # Issue linking mode (auto|off)
+  # auto: detect from branch name
+  mode: auto
+  
+  # Regex patterns to extract issue IDs
+  patterns:
+    - "(?<key>[A-Z]+-\\d+)"      # JIRA-style (e.g., PROJ-123)
+    - "(?<key>\\d+)"              # Numeric IDs (e.g., #123)
+  
+  # Template for issue links
+  link_template: "https://github.com/AbdulKhaliqAbdulAzeez/Repo-Aware-Commit-Composer/issues/{{key}}"
+
+model:
+  # Model provider (currently supports "openai")
+  provider: "openai"
+  
+  # Model name/ID
+  name: "gpt-4o-mini"
+  
+  # API key should be set via environment variable OPENAI_API_KEY
+  # api_key: "your-key-here"  # DO NOT commit real keys!
+  
+  # Maximum tokens in response
+  max_tokens: 512
+  
+  # Temperature (0.0-1.0, lower = more deterministic)
+  temperature: 0.2

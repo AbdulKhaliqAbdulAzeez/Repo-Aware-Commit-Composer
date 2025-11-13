@@ -1,0 +1,7 @@
+# Disable secret scanning for test files with fake API keys
+tests/**/*.test.ts -secret-scanning
+tests/**/*.test.js -secret-scanning
+
+# Disable secret scanning for example config files
+.aicmt.yaml -secret-scanning
+*.example.yaml -secret-scanning
